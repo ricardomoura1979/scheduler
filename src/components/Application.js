@@ -1,6 +1,28 @@
-import React from "react";
+
+import React, { useState } from "react";
 
 import "components/Application.scss";
+import DayList from "./DayList";
+
+
+const [day, setDay] = useState("Monday");
+const days = [
+  {
+    id: 1,
+    name: "Monday",
+    spots: 2,
+  },
+  {
+    id: 2,
+    name: "Tuesday",
+    spots: 5,
+  },
+  {
+    id: 3,
+    name: "Wednesday",
+    spots: 0,
+  },
+];
 
 export default function Application(props) {
   return (
@@ -12,7 +34,13 @@ export default function Application(props) {
           alt="Interview Scheduler"
         />
         <hr className="sidebar__separator sidebar--centered" />
-        <nav className="sidebar__menu"></nav>
+        <nav className="sidebar__menu">
+          <DayList
+            days={days}
+            value={"Monday"}
+            onChange={day => console.log(day)}
+          />
+        </nav>
         <img
           className="sidebar__lhl sidebar--centered"
           src="images/lhl.png"
@@ -20,7 +48,9 @@ export default function Application(props) {
         />
       </section>
       <section className="schedule">
-        {/* Replace this with the schedule elements durint the "The Scheduler" activity. */}
+      {appointment}
+      <Appointment key="last" time="5pm" bookInterview={bookInterview} cancelInterview={cancelInterview} 
+      />
       </section>
     </main>
   );
