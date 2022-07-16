@@ -7,6 +7,7 @@ import DayList from "./DayList";
 // eslint-disable-next-line
 import InterviewerList from "./InterviewerList";
 import Appointment from "components/Appointment";
+import { getAppointmentsForDay, getInterview } from "helpers/selectors";
 
 const appointments = {
   "1": {
@@ -68,24 +69,55 @@ const appointments = {
 ];
  */
 export default function Application(props) {
-  /* const [day, setDay] = useState('Monday'); */
-  const [days, setDays] = useState([])({
-  day: "Monday",
-  days: [],
-  appointments: {}
-});
+
+  const setDay = day => setState({ ...state, day });
+  const setDays = (days) => setState(prev => ({ ...prev, days }));
 
 
+  const [state, setState] = useState({
+    day: "Monday",
+    days: [],
+    appointments: {}
+
+  });
+  console.log(state);
+
+  /*  useEffect(() => {
+     const dayURL = `/api/days`;
+     axios.get(dayURL).then(response => {
+      
+       setDays(response.data)
+     });
+   }, []);
+ 
+  */
   useEffect(() => {
-    const dayURL = `/api/days`;
-    axios.get(dayURL).then(response => {
-     /*  console.log(response) */
-      setDays([...response.data]) 
-    });
+    Promise.all([
+      axios.get("/api/days"),
+      axios.get("/api/appointments"),
+      axios.get("/api/interviewers"),
+    ]).then((all) => {
+      setState(prev => ({ ...prev, days: all[0].data, appointments: all[1].data, interviewers: all[2].data }));
+
+    })
   }, []);
 
+  /*   const dailyAppointments = getAppointmentsForDay(state, state.day);
+    console.log(dailyAppointments) */
 
+  const dailyAppointments = getAppointmentsForDay(state, state.day);
+  const schedule = dailyAppointments.map((appointment) => {
+    const interview = getInterview(state, appointment.interview);
 
+    return (
+      <Appointment
+        key={appointment.id}
+        id={appointment.id}
+        time={appointment.time}
+        interview={interview}
+      />
+    );
+  });
   return (
     <main className="layout">
       <section className="sidebar">
@@ -97,9 +129,9 @@ export default function Application(props) {
         <hr className="sidebar__separator sidebar--centered" />
         <nav className="sidebar__menu">
           <DayList
-            days={days}
-            value={"Monday"}
-            onChange={day => console.log(day)}
+            days={state.days}
+            day={state.day}
+            setDay={setDay}
           />
         </nav>
         <img
@@ -110,7 +142,7 @@ export default function Application(props) {
       </section>
       <section className="schedule">
         {
-          Object.values(appointments).map(appointment => {
+          dailyAppointments.map(appointment => {
             return (
               <Appointment
                 key={appointment.id}
@@ -124,3 +156,4 @@ export default function Application(props) {
     </main>
   );
 }
+
