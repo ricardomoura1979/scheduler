@@ -7,7 +7,7 @@ import DayList from "./DayList";
 // eslint-disable-next-line
 import InterviewerList from "./InterviewerList";
 import Appointment from "components/Appointment";
-import { getAppointmentsForDay, getInterview } from "helpers/selectors";
+import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "helpers/selectors";
 
 const appointments = {
   "1": {
@@ -83,83 +83,86 @@ export default function Application(props) {
   console.log(state);
 
   function bookInterview(id, interview) {
+
     const appointment = {
       ...state.appointments[id],
       interview: { ...interview }
     };
-  }
-  /*  useEffect(() => {
-     const dayURL = `/api/days`;
-     axios.get(dayURL).then(response => {
-      
-       setDays(response.data)
-     });
-   }, []);
- 
-  */
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment
+    };
+    setState({
+      ...state,
+      appointments
+    });
+    //Within bookInterview, make a PUT request to the /api/appointments/:id endpoint to update the database with the interview data.
+    return axios.put(`/api/appointments/${id}`, { interview })
+      .then(() => {
+        setState({
+          ...state,
+          appointments
+        });
+      });
+    };
+
   useEffect(() => {
-    Promise.all([
-      axios.get("/api/days"),
-      axios.get("/api/appointments"),
-      axios.get("/api/interviewers"),
-    ]).then((all) => {
-      setState(prev => ({ ...prev, days: all[0].data, appointments: all[1].data, interviewers: all[2].data }));
+        Promise.all([
+          axios.get("/api/days"),
+          axios.get("/api/appointments"),
+          axios.get("/api/interviewers"),
+        ]).then((all) => {
+          setState(prev => ({ ...prev, days: all[0].data, appointments: all[1].data, interviewers: all[2].data }));
 
-    })
-  }, []);
+        })
+      }, []);
 
-  /*   const dailyAppointments = getAppointmentsForDay(state, state.day);
-    console.log(dailyAppointments) */
 
-  const dailyAppointments = getAppointmentsForDay(state, state.day);
-  const schedule = dailyAppointments.map((appointment) => {
-    const interview = getInterview(state, appointment.interview);
+    const dailyAppointments = getAppointmentsForDay(state, state.day);
+    const interviewers = getInterviewersForDay(state, state.day);
+    const schedule = dailyAppointments.map((appointment) => {
+      const interview = getInterview(state, appointment.interview);
 
+      return (
+        <Appointment
+          {...appointment}
+          bookInterview={bookInterview}
+          key={appointment.id}
+          interview={interview}
+          interviewers={interviewers}
+        />
+      );
+    });
     return (
-      <Appointment
-        key={appointment.id}
-        id={appointment.id}
-        time={appointment.time}
-        interview={interview}
-      />
-    );
-  });
-  return (
-    <main className="layout">
-      <section className="sidebar">
-        <img
-          className="sidebar--centered"
-          src="images/logo.png"
-          alt="Interview Scheduler"
-        />
-        <hr className="sidebar__separator sidebar--centered" />
-        <nav className="sidebar__menu">
-          <DayList
-            days={state.days}
-            day={state.day}
-            setDay={setDay}
+      <main className="layout">
+        <section className="sidebar">
+          <img
+            className="sidebar--centered"
+            src="images/logo.png"
+            alt="Interview Scheduler"
           />
-        </nav>
-        <img
-          className="sidebar__lhl sidebar--centered"
-          src="images/lhl.png"
-          alt="Lighthouse Labs"
-        />
-      </section>
-      <section className="schedule">
-        {
-          dailyAppointments.map(appointment => {
-            return (
-              <Appointment
-                key={appointment.id}
-                {...appointment} />
-            )
-          })
-        }
-        <Appointment key="last" time="5pm" />
+          <hr className="sidebar__separator sidebar--centered" />
+          <nav className="sidebar__menu">
+            <DayList
+              days={state.days}
+              day={state.day}
+              setDay={setDay}
+            />
+          </nav>
+          <img
+            className="sidebar__lhl sidebar--centered"
+            src="images/lhl.png"
+            alt="Lighthouse Labs"
+          />
+        </section>
+        <section className="schedule">
+          {
+            schedule
+          }
+          <Appointment key="last" time="5pm" />
 
-      </section>
-    </main>
-  );
-}
+        </section>
+      </main>
+    );
+  }
 
