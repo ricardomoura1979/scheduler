@@ -81,7 +81,10 @@ export default function Application(props) {
 
   });
   console.log(state);
-
+  
+  function bookInterview(id, interview) {
+    console.log(id, interview);
+  }
   /*  useEffect(() => {
      const dayURL = `/api/days`;
      axios.get(dayURL).then(response => {
