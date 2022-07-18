@@ -81,9 +81,12 @@ export default function Application(props) {
 
   });
   console.log(state);
-  
+
   function bookInterview(id, interview) {
-    console.log(id, interview);
+    const appointment = {
+      ...state.appointments[id],
+      interview: { ...interview }
+    };
   }
   /*  useEffect(() => {
      const dayURL = `/api/days`;
