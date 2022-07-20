@@ -14,7 +14,7 @@ import 'components/Appointment/styles.scss';
 //useVisualMode imported
 import useVisualMode from 'hooks/useVisualMode';
 
-const EMPTY = "EMPTY";
+const EMPTY = "EMPTY"; 
 const SHOW = "SHOW";
 const CREATE = "CREATE";
 const SAVING = "SAVING";
