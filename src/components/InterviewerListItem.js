@@ -3,36 +3,8 @@ import "components/InterviewerListItem.scss";
 
 
 const classNames = require('classnames');
+//this component should takes id, name, avatar, selected, and setInterviewer props.
 
-/* 
-export default function InterviewerListItem(props) {
-  return (
-    <li className="interviewers__item">
-      <img
-        className="interviewers__item-image"
-        src="https://i.imgur.com/LpaY82x.png"
-        alt="Sylvia Palmer"
-      />
-      Sylvia Palmer
-    </li>
-  );
-} */
-
-
-
-/* export default function InterviewerListItem(props) {
-  return (
-    <li className="interviewers__item">
-      <img
-        className="interviewers__item-image"
-        src={props.avatar}
-        alt={props.name}
-      />
-      {props.selected && props.name}
-    </li>
-  );
-}
- */
 export default function InterviewerListItem(props) {
   const interviewerClass = classNames("interviewers__item", {
     "interviewers__item--selected": props.selected
@@ -48,4 +20,4 @@ export default function InterviewerListItem(props) {
       {props.selected && props.name}
     </li>
   );
-}
+} 
