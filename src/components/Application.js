@@ -24,13 +24,13 @@ const {state, setDay, bookInterview, cancelInterview } = useApplicationData()
         key={appointment.id}
         interview={interview}
         interviewers={interviewers}  
-        cancelInterview={cancelInterview}
+        cancelInterview={cancelInterview} 
       />
     );
   });
   return (
     <main className="layout">
-      <section className="sidebar"> 
+      <section className="sidebar">  
         <img
           className="sidebar--centered"
           src="images/logo.png"
