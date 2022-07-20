@@ -30,7 +30,7 @@ export default function InterviewerList(props) {
     );
   });
   }
-  console.log(props)
+  console.log(props) 
  
 
   return (
