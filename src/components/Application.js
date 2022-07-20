@@ -22,7 +22,7 @@ const {state, setDay, bookInterview, cancelInterview } = useApplicationData()
         {...appointment}
         bookInterview={bookInterview}
         key={appointment.id}
-        interview={interview}
+        interview={interview} 
         interviewers={interviewers}  
         cancelInterview={cancelInterview} 
       />
