@@ -41,7 +41,7 @@ export default function InterviewerList(props) {
   );
 
 }
-  InterviewerList.propTypes = { 
+  InterviewerList.propTypes = {  
     interviewers: PropTypes.array.isRequired
   };
 
