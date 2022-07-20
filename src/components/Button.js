@@ -15,6 +15,6 @@ export default function Button(props) {
        disabled={props.disabled}
      >
        {props.children}
-     </button>
+     </button> 
    );
  }
