@@ -1,7 +1,7 @@
 import React from 'react';
 import DayListItem from "components/DayListItem";
 
-
+// rendering a list of daylistitems
 export default function DayList(props){
 
   return(
