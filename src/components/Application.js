@@ -30,7 +30,7 @@ const {state, setDay, bookInterview, cancelInterview } = useApplicationData()
   });
   return (
     <main className="layout">
-      <section className="sidebar">
+      <section className="sidebar"> 
         <img
           className="sidebar--centered"
           src="images/logo.png"
