@@ -38,7 +38,7 @@ export default function Appointment(props) {
     };
     // Call the props.bookInterview function with the appointment id and interview as arguments from within the save function. Verify that the id and interview values are correct in the console output.
     transition(SAVING, true);
-    props.bookInterview(props.id, interview)
+    props.bookInterview(props.id, interview) 
       .then(() => {
         console.log("XXXXXXXXXXXXXXXXXXX")
         transition(SHOW)
