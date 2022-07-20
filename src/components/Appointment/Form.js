@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Button from 'components/Button';
 import InterviewerList from 'components/InterviewerList';
 
-import { action } from '@storybook/addon-actions/dist/preview';
+/* import { action } from '@storybook/addon-actions/dist/preview'; */
 
 export default function Form(props) {
 
@@ -14,7 +14,7 @@ export default function Form(props) {
   
   const reset = () => {
     setStudent("")
-    setInterviewer(null)
+    setInterviewer(null) 
   }
 
   function cancel () {
