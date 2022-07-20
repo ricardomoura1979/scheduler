@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 
 import "components/Application.scss";
 import DayList from "./DayList";
-// eslint-disable-next-line
+// eslint-disable-next-line 
 import InterviewerList from "./InterviewerList";
 import Appointment from "components/Appointment";
 import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "helpers/selectors";
