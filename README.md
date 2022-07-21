@@ -24,10 +24,37 @@ npm run storybook
 ```
 ## Screenshots
 
-!["Decide to chose a specific day, time and a interviewer to be interviewed"]
-(https://github.com/ricardomoura1979/scheduler/blob/master/docs/delete%20and%20chose%20another%20day.png?raw=true)
+!["screenshot description"]
+(https://github.com/ricardomoura1979/scheduler/blob/master/docs/select%20a%20day.png)
 
+_A user can select a day, time and interviewer to go under a interview, easily!
 
-https://github.com/ricardomoura1979/scheduler/blob/master/docs/insert%20name%20and%20click%20save.png?raw=true
+!["screenshot description"]
 
-https://github.com/ricardomoura1979/scheduler/blob/master/docs/select%20a%20day.png?raw=true
+(https://github.com/ricardomoura1979/scheduler/blob/master/docs/insert%20name%20and%20click%20save.png)
+_Just write yur name and click to save.
+
+!["screenshot description"]
+(https://github.com/ricardomoura1979/scheduler/blob/master/docs/delete%20and%20chose%20another%20day.png)
+_You have to move to another day? No problem! Just edit your appointment or delete and chose another day!
+
+## Dependencies
+- Axios
+- Classnames
+- Normalize.css
+- React
+- React-dom
+- React-scripts
+- Babel/core
+- Storybook/addon-actions
+- Storybook/addon-backgrounds
+- Storybook/addon-links
+- Storybook/addons
+- Storybook/react
+- Testing-library/jest-dom
+- Testing-library/react
+- Testing-library/react-hooks
+- Babel-loader
+- Node-sass
+- Prop-types
+- React-test-renderer
