@@ -25,7 +25,7 @@ npm run storybook
 ## Screenshots
 
 !["Decide to chose a specific day, time and a interviewer to be interviewed]
-(https://github.com/ricardomoura1979/scheduler/blob/master/docs/delete%20and%20chose%20another%20day.png?raw=true)
+https://github.com/ricardomoura1979/scheduler/blob/master/docs/delete%20and%20chose%20another%20day.png?raw=true
 
 
 https://github.com/ricardomoura1979/scheduler/blob/master/docs/insert%20name%20and%20click%20save.png?raw=true
