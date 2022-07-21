@@ -24,18 +24,18 @@ npm run storybook
 ```
 ## Screenshots
 
-!["screenshot-description"]
+![screenshot]
 (https://github.com/ricardomoura1979/scheduler/blob/master/docs/select%20a%20day.png)
 
 A user can select a day, time and interviewer to go under a interview, easily!
 
-!["screenshot-description"]
+![screenshot]
 
 (https://github.com/ricardomoura1979/scheduler/blob/master/docs/insert%20name%20and%20click%20save.png)
 
 Just write yur name and click to save.
 
-!["screenshot-description"]
+![screenshot]
 (https://github.com/ricardomoura1979/scheduler/blob/master/docs/delete%20and%20chose%20another%20day.png)
 
 You have to move to another day? No problem! Just edit your appointment or delete and chose another day!
