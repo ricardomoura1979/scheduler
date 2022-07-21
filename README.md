@@ -1,4 +1,5 @@
 # Interview Scheduler
+A single page application for students to book interviews using just one click. You can select a day and time, edit, delete and chose another one as you wish.
 
 ## Setup
 
