@@ -1,5 +1,5 @@
 # Interview Scheduler
-A single page application for students to book interviews using just one click. You can select a day and time, edit, delete and chose another one as you wish.
+A single page application for students to book interviews using just one click. You can select a day and time, edit, delete and choose another one as you wish.
 
 ## Setup
 
@@ -31,7 +31,7 @@ A user can select a day, time and interviewer to go under a interview, easily!
 Just write yur name and click to save.
 
 ![screenshot](https://github.com/ricardomoura1979/scheduler/blob/master/docs/delete%20and%20chose%20another%20day.png)
-You have to move to another day? No problem! Just edit your appointment or delete and chose another day!
+You have to move to another day? No problem! Just edit your appointment or delete and choose another day!
 
 ## Dependencies
 - Axios
