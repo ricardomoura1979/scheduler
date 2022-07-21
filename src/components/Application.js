@@ -41,7 +41,7 @@ const {state, setDay, bookInterview, cancelInterview } = useApplicationData()
           <DayList
             days={state.days}
             day={state.day}
-            setDay={setDay}
+            onChange={setDay}
 
 
           />
